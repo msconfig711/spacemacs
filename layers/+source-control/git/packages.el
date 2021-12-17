@@ -29,7 +29,7 @@
         ;; it by default on Windows.
         (forge :toggle (not (spacemacs/system-is-mswindows)))
         ;; include the old git{attributes,config,ignore}-mode
-        git-modes
+        ;; git-modes
         gitignore-templates
         git-commit
         git-link
@@ -127,9 +127,9 @@
         ("Y" git-timemachine-kill-revision)
         ("q" nil :exit t)))))
 
-(defun git/init-git-modes ()
-  (use-package git-modes
-    :defer t))
+;;(defun git/init-git-modes ()
+;;  (use-package git-modes
+;;    :defer t))
 
 (defun git/init-gitignore-templates ()
   (use-package gitignore-templates

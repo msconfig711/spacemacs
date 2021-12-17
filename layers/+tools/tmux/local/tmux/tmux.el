@@ -62,22 +62,34 @@
   (interactive)
   (tmux-navigate "down"))
 
-(define-key evil-normal-state-map (kbd "C-h") #'tmux-nav-left)
-(define-key evil-normal-state-map (kbd "C-j") #'tmux-nav-down)
-(define-key evil-normal-state-map (kbd "C-k") #'tmux-nav-up)
-(define-key evil-normal-state-map (kbd "C-l") #'tmux-nav-right)
-(define-key evil-motion-state-map (kbd "C-h") #'tmux-nav-left)
-(define-key evil-motion-state-map (kbd "C-j") #'tmux-nav-down)
-(define-key evil-motion-state-map (kbd "C-k") #'tmux-nav-up)
-(define-key evil-motion-state-map (kbd "C-l") #'tmux-nav-right)
+;; (define-key evil-normal-state-map (kbd "C-h") #'tmux-nav-left)
+;; (define-key evil-normal-state-map (kbd "C-j") #'tmux-nav-down)
+;; (define-key evil-normal-state-map (kbd "C-k") #'tmux-nav-up)
+;; (define-key evil-normal-state-map (kbd "C-l") #'tmux-nav-right)
+;; (define-key evil-motion-state-map (kbd "C-h") #'tmux-nav-left)
+;; (define-key evil-motion-state-map (kbd "C-j") #'tmux-nav-down)
+;; (define-key evil-motion-state-map (kbd "C-k") #'tmux-nav-up)
+;; (define-key evil-motion-state-map (kbd "C-l") #'tmux-nav-right)'
+(define-key evil-normal-state-map (kbd "H") #'tmux-nav-left)
+(define-key evil-normal-state-map (kbd "U") #'tmux-nav-down)
+(define-key evil-normal-state-map (kbd "K") #'tmux-nav-up)
+(define-key evil-normal-state-map (kbd "L") #'tmux-nav-right)
+(define-key evil-motion-state-map (kbd "H") #'tmux-nav-left)
+(define-key evil-motion-state-map (kbd "U") #'tmux-nav-down)
+(define-key evil-motion-state-map (kbd "K") #'tmux-nav-up)
+(define-key evil-motion-state-map (kbd "L") #'tmux-nav-right)'
 
 ;; Modify `evil-evilified-state-map-original' because `evil-evilified-state-map'
 ;; is reset to this value each time the evilify macro is run.
 (when (boundp 'evil-evilified-state-map-original)
-  (define-key evil-evilified-state-map-original (kbd "C-h") #'tmux-nav-left)
-  (define-key evil-evilified-state-map-original (kbd "C-j") #'tmux-nav-down)
-  (define-key evil-evilified-state-map-original (kbd "C-k") #'tmux-nav-up)
-  (define-key evil-evilified-state-map-original (kbd "C-l") #'tmux-nav-right))
+  ; (define-key evil-evilified-state-map-original (kbd "C-h") #'tmux-nav-left)
+  ; (define-key evil-evilified-state-map-original (kbd "C-j") #'tmux-nav-down)
+  ; (define-key evil-evilified-state-map-original (kbd "C-k") #'tmux-nav-up)
+  ; (define-key evil-evilified-state-map-original (kbd "C-l") #'tmux-nav-right))
+  (define-key evil-evilified-state-map-original (kbd "H") #'tmux-nav-left)
+  (define-key evil-evilified-state-map-original (kbd "U") #'tmux-nav-down)
+  (define-key evil-evilified-state-map-original (kbd "K") #'tmux-nav-up)
+  (define-key evil-evilified-state-map-original (kbd "L") #'tmux-nav-right))
 
 (provide 'tmux)
 

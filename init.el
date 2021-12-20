@@ -71,3 +71,43 @@
       (unless (server-running-p)
         (message "Starting a server...")
         (server-start)))))
+(require 'vline)
+(set-face-background vline-face "#444444")
+  ;;(with-eval-after-load 'org
+    ;; 设置任务流程(这是我的配置)
+    ;;可以在 () 中定义附加选项,包括:
+    ;;
+    ;;字符:该状态的快捷键
+    ;;! : 切换到该状态时会自动添加时间戳
+    ;;@ : 切换到该状态时要求输入文字说明
+    ;;如果同时设定@和!,使用@/!
+    (setq org-todo-keywords
+          '((sequence "未开始(p!)" "进行中(t!)" "阻塞中(s@/!)" "|" "已完成(d!)" "已取消(a/!)")))
+    ;;'((sequence "未开始(p!)" "进行中(t!)" "阻塞中(s!)" "|" "已完成(d!)" "已取消(a@/!)")))
+    (setq org-log-done 'time)
+    ;; 设置任务样式
+    (setq org-todo-keyword-faces
+          '(("未开始" .   (:foreground "red" :weight bold))
+            ("进行中" .   (:foreground "orange" :weight bold))
+            ("已完成" .   (:foreground "green" :weight bold))
+            ("阻塞中" .   (:foreground "red" :weight bold))
+            ("已取消" .   (:background "gray" :foreground "black"))
+            ))
+;;)))
+    (setq org-agenda-custom-commands
+          '(
+            ("w" . "任务安排")
+            ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
+            ("wb" "重要且不紧急的任务" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
+            ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+            ("W" "Weekly Review"
+             ((stuck "") ;; review stuck projects as designated by org-stuck-projects
+              (tags-todo "project")
+              (tags-todo "daily")
+              (tags-todo "weekly")
+              (tags-todo "school")
+              (tags-todo "code")
+              (tags-todo "theory")
+              ))
+            ))
+
